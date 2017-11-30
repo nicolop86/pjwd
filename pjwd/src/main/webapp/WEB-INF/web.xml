@@ -11,9 +11,15 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>multixServlet</servlet-name>
+		<servlet-class>simpleServlet.MultiValueServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>firstServlet</servlet-name>
-		<url-pattern>/welcome</url-pattern>
+		<servlet-name>multixServlet</servlet-name>
+		<url-pattern>/multix</url-pattern>
+		<url-pattern>/multiple</url-pattern>
 	</servlet-mapping>
   
 </web-app>
