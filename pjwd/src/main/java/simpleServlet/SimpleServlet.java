@@ -3,6 +3,7 @@ package simpleServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ public class SimpleServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
 //		response.getWriter().print("Hello!");
+		ServletContext ctx = this.getServletContext();
 		if(_log.isInfoEnabled()){
 			_log.info("Servlet " + this.getServletName() + " is responding to doGet.");
 		}
@@ -42,6 +44,7 @@ public class SimpleServlet extends HttpServlet{
 		.append(" </form>\r\n")
 		.append(" </body>\r\n")
 		.append("</html>\r\n");
+		writer.append("settingOne: ").append(ctx.getInitParameter("settingOne")).append(", settingTwo: ").append(ctx.getInitParameter("settingTwo"));
 	}
 
 	@Override
