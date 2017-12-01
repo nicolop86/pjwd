@@ -3,6 +3,10 @@
 		<title>Welcome to PJWD!</title>
 	</head>
 	<body>
-		<h2>Hello World!</h2>
+		<h2>Welcome!</h2>
+		<br>
+		<br>
+		Go to <a href="tickets">ticket service</a>
+		
 	</body>
 </html>

@@ -51,4 +51,20 @@
 		<servlet-name>secondServlet</servlet-name>
 		<url-pattern>/servletWithInitParamServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ticketServlet</servlet-name>
+		<servlet-class>customerSupport.servlets.TicketServlet</servlet-class>
+		<multipart-config>
+			<location>/temp</location>
+	        <max-file-size>20971520</max-file-size>
+	        <max-request-size>41943040</max-request-size>
+	        <file-size-threshold>5242880</file-size-threshold>
+    </multipart-config>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>ticketServlet</servlet-name>
+		<url-pattern>/tickets</url-pattern>
+	</servlet-mapping>
+
 </web-app>

@@ -15,7 +15,7 @@ import org.apache.commons.logging.LogFactory;
 public class ServletInitParamServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private static final Log _log = LogFactory.getLog(SimpleServlet.class);
+	private static final Log _log = LogFactory.getLog(ServletInitParamServlet.class);
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
