@@ -1,3 +1,4 @@
+<!-- To be used with first examples
 <html>
 	<head>
 		<title>Welcome to PJWD!</title>
@@ -17,3 +18,6 @@
 		Go to <a href="contextjsp">contextInitParamsJsp</a>
 	</body>
 </html>
+ -->
+<%@ page session="false" %>
+<c:redirect url="/tickets" />
