@@ -1,3 +1,6 @@
+<%@ page session="false" %>
+<c:redirect url="/tickets" />
+
 <!-- To be used with first examples
 <html>
 	<head>
@@ -18,6 +21,4 @@
 		Go to <a href="contextjsp">contextInitParamsJsp</a>
 	</body>
 </html>
- -->
-<%@ page session="false" %>
-<c:redirect url="/tickets" />
+-->

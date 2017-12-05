@@ -1,7 +1,8 @@
 <%@ page session="false" import="java.util.Map" %>
 <%
-@SuppressWarnings("unchecked")
-Map<Integer, Ticket> ticketDatabase =(Map<Integer, Ticket>)request.getAttribute("ticketDatabase");
+    @SuppressWarnings("unchecked")
+    Map<Integer, Ticket> ticketDatabase =
+            (Map<Integer, Ticket>)request.getAttribute("ticketDatabase");
 %>
 <!DOCTYPE html>
 <html>

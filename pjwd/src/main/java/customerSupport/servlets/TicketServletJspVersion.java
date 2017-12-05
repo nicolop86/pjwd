@@ -44,8 +44,7 @@ public class TicketServletJspVersion extends HttpServlet {
 		if(_log.isInfoEnabled()){
 			_log.info("action is " + action);
 		}
-		switch(action)
-		{
+		switch(action){
 		case "create":
 			this.showTicketForm(request, response);
 			break;
@@ -74,8 +73,7 @@ public class TicketServletJspVersion extends HttpServlet {
 		if(_log.isInfoEnabled()){
 			_log.info("action is " + action);
 		}
-		switch(action)
-		{
+		switch(action){
 		case "create":
 			this.createTicket(request, response);
 			break;
@@ -85,12 +83,18 @@ public class TicketServletJspVersion extends HttpServlet {
 			break;
 		}
 	}
+	
+	@Override
+	public void destroy(){
+		if(_log.isInfoEnabled()){
+			_log.info("Servlet " + this.getServletName() + " has stopped.");
+		}
+	}
+	
 	private void showTicketForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		if(_log.isInfoEnabled()){
 			_log.info("showTicketForm method has been called.");
-			_log.info("Context path: " + request.getContextPath());
-			_log.info("Context path: " + request.getServletPath());
 		}
 		request.getRequestDispatcher("/WEB-INF/jsp/view/ticketForm.jsp").forward(request, response);
 
@@ -118,8 +122,7 @@ public class TicketServletJspVersion extends HttpServlet {
 			_log.info("listTickets method has been called.");
 		}
 		request.setAttribute("ticketDatabase", this.ticketDatabase);
-		request.getRequestDispatcher("/WEB-INF/jsp/view/listTickets.jsp")
-		.forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/view/listTickets.jsp").forward(request, response);
 	}
 	
 	private Ticket getTicket(String idString, HttpServletResponse response)
@@ -135,14 +138,12 @@ public class TicketServletJspVersion extends HttpServlet {
 
 		try{
 			Ticket ticket = this.ticketDatabase.get(Integer.parseInt(idString));
-			if(ticket == null)
-			{
+			if(ticket == null){
 				response.sendRedirect("tickets");
 				return null;
 			}
 			return ticket;
-		}catch(Exception e)
-		{
+		}catch(Exception e){
 			response.sendRedirect("tickets");
 			return null;
 		}
@@ -160,15 +161,13 @@ public class TicketServletJspVersion extends HttpServlet {
 			return;
 
 		String name = request.getParameter("attachment");
-		if(name == null)
-		{
+		if(name == null){
 			response.sendRedirect("tickets?action=view&ticketId=" + idString);
 			return;
 		}
 
 		Attachment attachment = ticket.getAttachment(name);
-		if(attachment == null)
-		{
+		if(attachment == null){
 			response.sendRedirect("tickets?action=view&ticketId=" + idString);
 			return;
 		}
@@ -228,8 +227,7 @@ public class TicketServletJspVersion extends HttpServlet {
 		int read;
 		final byte[] bytes = new byte[1024];
 
-		while((read = inputStream.read(bytes)) != -1)
-		{
+		while((read = inputStream.read(bytes)) != -1){
 			outputStream.write(bytes, 0, read);
 		}
 

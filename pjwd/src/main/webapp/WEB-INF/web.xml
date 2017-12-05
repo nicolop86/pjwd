@@ -1,9 +1,11 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
 
-<web-app>
-  <display-name>Simple Servlet Web Application</display-name>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+  <display-name>CSP Web Application</display-name>
   
  	<jsp-config>
 		<jsp-property-group>
@@ -20,6 +22,7 @@
 	<servlet>
 		<servlet-name>ticketServlet</servlet-name>
 		<servlet-class>customerSupport.servlets.TicketServletJspVersion</servlet-class>
+		<load-on-startup>1</load-on-startup>
 		<multipart-config>
 			<location>C:/Program Files/apache-tomcat-8.0.47/temp</location>
 	        <max-file-size>20971520</max-file-size>
