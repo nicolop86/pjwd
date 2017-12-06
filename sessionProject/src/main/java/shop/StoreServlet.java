@@ -41,14 +41,39 @@ public class StoreServlet extends HttpServlet {
 		case "viewCart":
 			this.viewCart(request, response);
 			break;
-		case "emtpyCart":
+		case "emptyCart":
 			this.emptyCart(request, response);
+			break;
+		case "removeItem":
+			this.removeItem(request, response);
+			break;
 		case "browser":
 		default:
 			this.browse(request, response);
 			break;
 
 		}
+	}
+
+	private void removeItem(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		if(_log.isInfoEnabled()){
+			_log.info("removeItem method called");
+		}
+		int productId;
+		HttpSession session = request.getSession();
+		try {
+			productId = Integer.parseInt(request.getParameter("productId"));
+			if(_log.isInfoEnabled()){
+				_log.info("Product code is " + productId + " - item " + products.get(productId));
+			}
+		} catch(Exception e) {
+			response.sendRedirect("shop");
+			return;
+		}
+		@SuppressWarnings("unchecked")
+		Map<Integer, Integer> cart = (Map<Integer, Integer>)session.getAttribute("cart");
+		cart.remove(productId);
+		response.sendRedirect("shop?action=viewCart");
 	}
 
 	private void emptyCart(HttpServletRequest request, HttpServletResponse response) throws IOException {

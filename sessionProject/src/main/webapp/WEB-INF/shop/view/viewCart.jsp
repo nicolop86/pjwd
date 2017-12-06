@@ -17,7 +17,11 @@
 			out.println("Your cart is empty.");
 		} else {
 			for(int id : cart.keySet()){
-				out.println(products.get(id) + " (qty: " + cart.get(id) +")<br />");
+				out.println(products.get(id) + " (qty: " + cart.get(id) +")");
+				%> [<a href="<c:url value="/shop">
+			<c:param name="action" value="removeItem" />
+			<c:param name="productId" value="<%= Integer.toString(id) %>"/>
+			</c:url>">x</a>] press here  to remove item from cart<br /> <%
 			}
 		}
 		%>
