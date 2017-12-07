@@ -1,2 +1,1 @@
-<%@ page session="false" %>
-<c:redirect url="/shop" />
+<c:redirect url="/tickets" />

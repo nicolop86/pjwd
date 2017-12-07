@@ -41,6 +41,10 @@ public class TicketServlet extends HttpServlet {
 		if(_log.isInfoEnabled()){
 			_log.info("Servlet " + this.getServletName() + " is responding to doGet.");
 		}
+		if(request.getSession().getAttribute("username") == null){
+			response.sendRedirect("login");
+			return;
+		}
 		String action = request.getParameter("action");
 		if(action == null)
 			action = "list";
@@ -70,6 +74,10 @@ public class TicketServlet extends HttpServlet {
 		if(_log.isInfoEnabled()){
 			_log.info("Servlet " + this.getServletName() + " is responding to doPost.");
 		}
+		if(request.getSession().getAttribute("username") == null){
+			response.sendRedirect("login");
+			return;
+		}
 		String action = request.getParameter("action");
 		if(action == null)
 			action = "list";
@@ -86,14 +94,14 @@ public class TicketServlet extends HttpServlet {
 			break;
 		}
 	}
-	
+
 	@Override
 	public void destroy(){
 		if(_log.isInfoEnabled()){
 			_log.info("Servlet " + this.getServletName() + " has stopped.");
 		}
 	}
-	
+
 	private void showTicketForm(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		if(_log.isInfoEnabled()){
@@ -117,23 +125,23 @@ public class TicketServlet extends HttpServlet {
 		request.setAttribute("ticket", ticket);
 		request.getRequestDispatcher("/WEB-INF/jsp/view/viewTicket.jsp").forward(request, response);
 	}
-	
+
 	private void listTickets(HttpServletRequest request,
 			HttpServletResponse response)
-			throws ServletException, IOException{
+					throws ServletException, IOException{
 		if(_log.isInfoEnabled()){
 			_log.info("listTickets method has been called.");
 		}
 		request.setAttribute("ticketDatabase", this.ticketDatabase);
 		request.getRequestDispatcher("/WEB-INF/jsp/view/listTickets.jsp").forward(request, response);
 	}
-	
+
 	private Ticket getTicket(String idString, HttpServletResponse response)
 			throws ServletException, IOException{
 		if(_log.isInfoEnabled()){
 			_log.info("getTicket method has been called.");
 		}
-		
+
 		if(idString == null || idString.length() == 0){
 			response.sendRedirect("tickets");
 			return null;
@@ -189,7 +197,7 @@ public class TicketServlet extends HttpServlet {
 		in.close();
 		stream.flush();
 	}
-	
+
 	private void createTicket(HttpServletRequest request,
 			HttpServletResponse response)
 					throws ServletException, IOException{
@@ -197,7 +205,7 @@ public class TicketServlet extends HttpServlet {
 			_log.info("createTicket method has been called.");
 		}
 		Ticket ticket = new Ticket();
-		ticket.setCustomerName(request.getParameter("customerName"));
+		ticket.setCustomerName((String)request.getSession().getAttribute("username"));
 		ticket.setSubject(request.getParameter("subject"));
 		ticket.setBody(request.getParameter("body"));
 
@@ -218,7 +226,7 @@ public class TicketServlet extends HttpServlet {
 
 		response.sendRedirect("tickets?action=view&ticketId=" + id);
 	}
-	
+
 	private Attachment processAttachment(Part filePart)
 			throws IOException{
 		if(_log.isInfoEnabled()){
