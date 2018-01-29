@@ -1,5 +1,5 @@
 <%--@elvariable id="ticketId" type="java.lang.String"--%>
-<%--@elvariable id="ticket" type="com.wrox.Ticket"--%>
+<%--@elvariable id="ticket" type="customerSupport.items.Ticket"--%>
 <%@ page session="false" %>
 <%
 Ticket ticket = (Ticket)request.getAttribute("ticket");

@@ -1,37 +1,38 @@
-package addressBook.items;
+package addressBooki18n.items;
 
 import java.time.Instant;
 import java.time.MonthDay;
+import java.util.Date;
 
 public class Contact implements Comparable<Contact> {
 
 	private String firstName;
 
-    private String lastName;
+	private String lastName;
 
-    private String phoneNumber;
+	private String phoneNumber;
 
-    private String address;
+	private String address;
 
-    private MonthDay birthday;
+	private MonthDay birthday;
 
-    private Instant dateCreated;
+	private Instant dateCreated;
 
-    public Contact()
-    {
+	public Contact()
+	{
 
-    }
+	}
 
-    public Contact(String firstName, String lastName, String phoneNumber,
-                   String address, MonthDay birthday,
-                   Instant dateCreated) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-        this.birthday = birthday;
-        this.dateCreated = dateCreated;
-    }
+	public Contact(String firstName, String lastName, String phoneNumber,
+			String address, MonthDay birthday,
+			Instant dateCreated){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+		this.birthday = birthday;
+		this.dateCreated = dateCreated;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -82,10 +83,14 @@ public class Contact implements Comparable<Contact> {
 	}
 
 	@Override
-    public int compareTo(Contact other){
-        int last = lastName.compareTo(other.lastName);
-        if(last == 0)
-            return firstName.compareTo(other.firstName);
-        return last;
-    }
+	public int compareTo(Contact other){
+		int last = lastName.compareTo(other.lastName);
+		if(last == 0)
+			return firstName.compareTo(other.firstName);
+		return last;
+	}
+
+	public Date getOldDateCreated(){
+		return new Date(this.dateCreated.toEpochMilli());
+	}
 }
