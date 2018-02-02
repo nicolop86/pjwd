@@ -52,14 +52,18 @@ public class ListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		String language = request.getParameter("language");
-		if("french".equalsIgnoreCase(language))
+		if("french".equalsIgnoreCase(language)) {
 			Config.set(request, Config.FMT_LOCALE, Locale.FRANCE);
-		if(request.getParameter("empty") != null)
+		} else if ("italian".equalsIgnoreCase(language)){
+			Config.set(request, Config.FMT_LOCALE, Locale.ITALY);
+		}
+		if(request.getParameter("empty") != null){
 			request.setAttribute("contacts", Collections.<Contact>emptySet());
-		else
+		}
+		else {
 			request.setAttribute("contacts", contacts);
-		request.getRequestDispatcher("/WEB-INF/jsp/view/listInternational.jsp")
-		.forward(request, response);
+		}
+		request.getRequestDispatcher("/WEB-INF/jsp/view/listInternational.jsp").forward(request, response);
 	}
 
 }
