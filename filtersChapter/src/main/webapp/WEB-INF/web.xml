@@ -36,7 +36,7 @@
 	
 	<servlet>
 		<servlet-name>myServlet</servlet-name>
-		<servlet-class>filtersChapter.servlets.MyServlet</servlet-class>
+		<servlet-class>filtersChapter.beginner.servlets.MyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>myServlet</servlet-name>
@@ -45,7 +45,7 @@
 	
 	<servlet>
 		<servlet-name>mySecondServlet</servlet-name>
-		<servlet-class>filtersChapter.servlets.MySecondServlet</servlet-class>
+		<servlet-class>filtersChapter.beginner.servlets.MySecondServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>mySecondServlet</servlet-name>
@@ -54,7 +54,7 @@
 	
 	<servlet>
 		<servlet-name>myThirdServlet</servlet-name>
-		<servlet-class>filtersChapter.servlets.MyThirdServlet</servlet-class>
+		<servlet-class>filtersChapter.beginner.servlets.MyThirdServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>myThirdServlet</servlet-name>
