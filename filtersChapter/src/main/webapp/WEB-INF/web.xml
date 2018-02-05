@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>Filters WebApp</display-name>
+
+	<filter>
+		<filter-name>myFilter</filter-name>
+		<filter-class>filtersChapter.beginner.filters.MyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>myFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>mySecondFilter</filter-name>
+		<filter-class>filtersChapter.beginner.filters.MySecondFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>mySecondFilter</filter-name>
+		<url-pattern>/servletTwo</url-pattern>
+		<url-pattern>/servletThree</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>myThirdFilter</filter-name>
+		<filter-class>filtersChapter.beginner.filters.MyThirdFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>myThirdFilter</filter-name>
+		<url-pattern>/servletTwo</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>myServlet</servlet-name>
+		<servlet-class>filtersChapter.servlets.MyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myServlet</servlet-name>
+		<url-pattern>/servletOne</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>mySecondServlet</servlet-name>
+		<servlet-class>filtersChapter.servlets.MySecondServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mySecondServlet</servlet-name>
+		<url-pattern>/servletTwo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>myThirdServlet</servlet-name>
+		<servlet-class>filtersChapter.servlets.MyThirdServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myThirdServlet</servlet-name>
+		<url-pattern>/servletThree</url-pattern>
+	</servlet-mapping>
+
+</web-app>
