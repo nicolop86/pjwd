@@ -5,9 +5,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-  <display-name>My Customized Tags WebApp</display-name>
+         
+  <display-name>Custom Ticket Service Web App</display-name>
   
-	<jsp-config>
+  <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
             <url-pattern>*.jspf</url-pattern>
@@ -31,16 +32,6 @@
 		</cookie-config>
 		<tracking-mode>COOKIE</tracking-mode>
 	</session-config>
-	
-	<servlet>
-		<servlet-name>indexServlet</servlet-name>
-		<servlet-class>customizedTagLibraries.servlets.IndexServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>indexServlet</servlet-name>
-		<url-pattern>/index</url-pattern>
-	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>loginServlet</servlet-name>
@@ -77,5 +68,13 @@
 		<servlet-name>ticketServlet</servlet-name>
 		<url-pattern>/tickets</url-pattern>
 	</servlet-mapping>
-
+	
+	<listener>
+    	<listener-class>customerSupport.utils.SessionListener</listener-class>
+    </listener>
+    
+    <listener>
+    	<listener-class>customerSupport.utils.Configurator</listener-class>
+    </listener>
+	
 </web-app>
