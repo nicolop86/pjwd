@@ -38,6 +38,43 @@
     	<url-pattern>/ticTacToe</url-pattern>
     </servlet-mapping>
     
-    <distributable />
     
+    <servlet>
+    	<servlet-name>clusterNode1</servlet-name>
+    	<servlet-class>simulatedCluster.servlets.ClusterNodeServlet</servlet-class>
+    	<init-param>
+    		<param-name>nodeId</param-name>
+    		<param-value>1</param-value>
+    	</init-param>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>clusterNode1</servlet-name>
+	    <url-pattern>/clusterNode1</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>clusterNode2</servlet-name>
+    	<servlet-class>simulatedCluster.servlets.ClusterNodeServlet</servlet-class>
+    	<init-param>
+    		<param-name>nodeId</param-name>
+    		<param-value>2</param-value>
+    	</init-param>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>clusterNode2</servlet-name>
+	    <url-pattern>/clusterNode2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>clusterNode3</servlet-name>
+    	<servlet-class>simulatedCluster.servlets.ClusterNodeServlet</servlet-class>
+    	<init-param>
+    		<param-name>nodeId</param-name>
+    		<param-value>3</param-value>
+    	</init-param>
+    </servlet>
+    <servlet-mapping>
+	    <servlet-name>clusterNode3</servlet-name>
+	    <url-pattern>/clusterNode3</url-pattern>
+    </servlet-mapping>
 </web-app>
