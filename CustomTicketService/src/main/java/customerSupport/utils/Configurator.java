@@ -20,7 +20,7 @@ public class Configurator implements ServletContextListener {
 		ServletContext context = sce.getServletContext();
 		FilterRegistration.Dynamic registration = context.addFilter("authenticationFilter", new AuthenticationFilter());
 		registration.setAsyncSupported(true);
-		registration.addMappingForUrlPatterns(null, false, "/sessions", "/tickets");
+		registration.addMappingForUrlPatterns(null, false, "/sessions", "/tickets", "/chat");
 	}
 
 	@Override

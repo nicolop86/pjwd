@@ -34,6 +34,15 @@
 	</session-config>
 	
 	<servlet>
+		<servlet-name>chatServlet</servlet-name>
+		<servlet-class>customerSupport.servlets.ChatServlet</servlet-class>
+	</servlet>	
+	<servlet-mapping>
+		<servlet-name>chatServlet</servlet-name>
+		<url-pattern>/chat</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
 		<servlet-name>loginServlet</servlet-name>
     	<servlet-class>customerSupport.servlets.LoginServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>

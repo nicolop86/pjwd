@@ -13,7 +13,7 @@
                 <c:out value="${customDateFormat:abbreviateString(entry.value.subject, 60)}" />
                 </a><br />
                 <c:out value="${entry.value.customerName}" /> created ticket
-                <wrox:formatDate value="${entry.value.dateCreated}" type="both" timeStyle="short" dateStyle="medium" /><br />
+                <customDateFormat:formatDate value="${entry.value.dateCreated}" type="both" timeStyle="short" dateStyle="medium" /><br />
                 <br />
             </c:forEach>
         </c:otherwise>
